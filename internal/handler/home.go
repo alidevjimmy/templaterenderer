@@ -1,13 +1,14 @@
 package handler
 
 import (
+	"github.com/alidevjimmy/templaterenderer/internal/handler/message"
 	"html/template"
 	"net/http"
 )
 
 func Home(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
-		tmpl, err := template.ParseFiles("internal/template/page/404.html")
+		tmpl, err := template.ParseFiles(NotFoundFiles...)
 		if err != nil {
 			http.NotFound(w, r)
 			return
@@ -18,9 +19,13 @@ func Home(w http.ResponseWriter, r *http.Request) {
 		}
 		return
 	}
+	hm := message.HomeMessage{
+		Errors:  []string{},
+		Success: true,
+	}
 	render(
 		w,
-		nil,
+		hm,
 		"internal/template/page/home.html",
 		"internal/template/static/header.html",
 		"internal/template/static/footer.html",

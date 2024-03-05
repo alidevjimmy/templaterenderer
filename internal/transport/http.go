@@ -1,19 +1,22 @@
 package transport
 
 import (
+	"github.com/alidevjimmy/templaterenderer/internal/handler"
 	"log"
 	"net/http"
 )
 
 type httpServer struct {
-	addr string
-	mux  *http.ServeMux
+	addr        string
+	mux         *http.ServeMux
+	userHandler *handler.UserHandler
 }
 
-func NewHttpServer(addr string) Server {
+func NewHttpServer(addr string, userHandler *handler.UserHandler) Server {
 	return &httpServer{
-		addr: addr,
-		mux:  http.NewServeMux(),
+		addr:        addr,
+		mux:         http.NewServeMux(),
+		userHandler: userHandler,
 	}
 }
 

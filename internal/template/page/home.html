@@ -2,16 +2,34 @@
 <html lang="en">
 {{ template "head.html" }}
 <body>
-    {{ template "header.html"}}
-    <form method="POST" action="/profile">
-        <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    {{ template "footer.html"}}
-    {{ template "bootstrap_bundle.html"}}
+{{ template "header.html"}}
+{{if eq .Success false}}
+<div class="alert alert-danger" role="alert">
+    <ul>
+        {{range .Errors}}
+        <li>{{.}}</li>
+        {{end}}
+    </ul>
+</div>
+{{end}}
+<form method="POST" action="/profile">
+    <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="username">
+
+        <label for="firstName" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="firstName" name="firstName">
+
+        <label for="lastName" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lastName" name="lastName">
+
+        <label for="age" class="form-label">Age</label>
+        <input type="number" class="form-control" id="age" name="age">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<!--{{ template "footer.html"}}-->
+{{ template "bootstrap_bundle.html"}}
 
 </body>
 </html>

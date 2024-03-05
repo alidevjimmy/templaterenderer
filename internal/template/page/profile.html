@@ -3,8 +3,11 @@
 {{ template "head.html" }}
 <body>
     {{ template "header.html"}}
-    <h1>Hi {{ .Username }}</h1>
-    {{ template "footer.html"}}
+    <h1>Username: {{ .User.Username }}</h1>
+    <h1>First Name: {{ .User.FirstName }}</h1>
+    <h1>Last Name: {{ .User.LastName }}</h1>
+    <h1>Age: {{ .User.Age }}</h1>
+<!--    {{ template "footer.html"}}-->
     {{ template "bootstrap_bundle.html"}}
 </body>
 </html>

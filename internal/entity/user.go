@@ -1,5 +1,8 @@
 package entity
 
 type User struct {
-	Username string
+	Username  string
+	FirstName string
+	LastName  string
+	Age       uint
 }
