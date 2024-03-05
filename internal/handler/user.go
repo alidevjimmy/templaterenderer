@@ -11,19 +11,19 @@ import (
 
 var (
 	profileFiles = []string{
+		"internal/template/base/base.html",
 		"internal/template/page/profile.html",
 		"internal/template/static/header.html",
-		"internal/template/static/footer.html",
-		"internal/template/static/head.html",
 		"internal/template/assets/bootstrap_bundle.html",
+		"internal/template/assets/links.html",
 	}
 
 	homeFiles = []string{
+		"internal/template/base/base.html",
 		"internal/template/page/home.html",
 		"internal/template/static/header.html",
-		"internal/template/static/footer.html",
-		"internal/template/static/head.html",
 		"internal/template/assets/bootstrap_bundle.html",
+		"internal/template/assets/links.html",
 	}
 )
 

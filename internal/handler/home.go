@@ -26,9 +26,5 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	render(
 		w,
 		hm,
-		"internal/template/page/home.html",
-		"internal/template/static/header.html",
-		"internal/template/static/footer.html",
-		"internal/template/static/head.html",
-		"internal/template/assets/bootstrap_bundle.html")
+		homeFiles...)
 }

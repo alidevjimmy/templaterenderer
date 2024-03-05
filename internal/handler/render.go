@@ -14,7 +14,7 @@ func render(w http.ResponseWriter, data interface{}, filename ...string) {
 		return
 	}
 
-	if err := tmpl.Execute(w, data); err != nil {
+	if err := tmpl.ExecuteTemplate(w, "base", data); err != nil {
 		log.Print(err)
 		http.Error(w, "something went wrong", http.StatusInternalServerError)
 	}
