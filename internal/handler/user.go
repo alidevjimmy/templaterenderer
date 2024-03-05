@@ -72,6 +72,7 @@ func (h *UserHandler) Join(w http.ResponseWriter, r *http.Request) {
 			Success: false,
 			Errors:  []string{"please fill all the inputs"},
 		}
+		http.Redirect(w, r, "/", http.StatusSeeOther)
 		render(w, hm, homeFiles...)
 		return
 	}
@@ -88,11 +89,13 @@ func (h *UserHandler) Join(w http.ResponseWriter, r *http.Request) {
 			Success: false,
 			Errors:  []string{err.Error()},
 		}
+		http.Redirect(w, r, "/", http.StatusSeeOther)
 		render(w, hm, homeFiles...)
 		return
 	}
 	pm := message.ProfileMessage{
 		User: user,
 	}
+	http.Redirect(w, r, "/profile/"+user.Username, http.StatusSeeOther)
 	render(w, pm, profileFiles...)
 }
